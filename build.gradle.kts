@@ -5,13 +5,22 @@ plugins {
 }
 
 group = "gg.pignet"
-version = "1.0-SNAPSHOT"
+version = "1.0.4"
 
 repositories {
     mavenCentral()
 }
 
-
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
 
 dependencies {
     paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
@@ -29,5 +38,7 @@ kotlin {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }
