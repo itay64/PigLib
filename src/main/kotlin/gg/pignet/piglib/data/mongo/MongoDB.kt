@@ -1,4 +1,4 @@
-package gg.pignet.gingerlib.data.mongo
+package gg.pignet.piglib.data.mongo
 
 import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
@@ -9,9 +9,9 @@ import com.mongodb.client.model.Indexes
 import com.mongodb.client.model.ReplaceOptions
 import com.mongodb.client.result.DeleteResult
 import com.mongodb.client.result.UpdateResult
-import gg.pignet.gingerlib.data.mongo.MongoDB.executor
-import gg.pignet.gingerlib.data.service.NameCacheService
-import gg.pignet.gingerlib.config.ConfigHandler.CONFIG
+import gg.pignet.piglib.data.mongo.MongoDB.executor
+import gg.pignet.piglib.data.service.NameCacheService
+import gg.pignet.piglib.config.ConfigHandler.CONFIG
 import org.bson.Document
 import org.bson.UuidRepresentation
 import org.bson.codecs.configuration.CodecRegistries.fromProviders

@@ -1,11 +1,11 @@
-package gg.pignet.gingerlib.gui
+package gg.pignet.piglib.gui
 
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.inventory.Inventory
-import gg.pignet.gingerlib.gui.elements.Button
-import gg.pignet.gingerlib.gui.elements.Element
-import gg.pignet.gingerlib.gui.elements.Slot
+import gg.pignet.piglib.gui.elements.Button
+import gg.pignet.piglib.gui.elements.Element
+import gg.pignet.piglib.gui.elements.Slot
 import net.kyori.adventure.text.Component
 
 fun gui(title: Component, inventoryType: InventorySize, init: GUI.() -> Unit): GUI {

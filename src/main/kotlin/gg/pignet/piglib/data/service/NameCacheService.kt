@@ -1,11 +1,11 @@
-package gg.pignet.gingerlib.data.service
+package gg.pignet.piglib.data.service
 
 import com.google.gson.JsonParser
 import com.mongodb.MongoException
 import com.mongodb.client.MongoCollection
 import com.mongodb.client.model.Filters
-import gg.pignet.gingerlib.data.mongo.MongoDB
-import gg.pignet.gingerlib.data.mongo.toUUID
+import gg.pignet.piglib.data.mongo.MongoDB
+import gg.pignet.piglib.data.mongo.toUUID
 import gg.pignet.event.data.findKeyByValue
 import org.bson.Document
 import java.net.URL

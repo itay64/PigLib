@@ -1,4 +1,4 @@
-package gg.pignet.gingerlib.gui
+package gg.pignet.piglib.gui
 
 /**
  * Represents the different sizes of inventories in terms of number of slots.

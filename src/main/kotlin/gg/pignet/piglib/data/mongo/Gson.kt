@@ -1,4 +1,4 @@
-package gg.pignet.gingerlib.data.mongo
+package gg.pignet.piglib.data.mongo
 
 import com.google.gson.ExclusionStrategy
 import com.google.gson.FieldAttributes

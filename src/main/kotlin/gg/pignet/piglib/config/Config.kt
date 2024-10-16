@@ -1,4 +1,4 @@
-package gg.pignet.gingerlib.config
+package gg.pignet.piglib.config
 
 data class Config(
     val mongo: Mongo = Mongo()

@@ -1,4 +1,4 @@
-package gg.pignet.gingerlib.config
+package gg.pignet.piglib.config
 
 import net.kyori.adventure.text.minimessage.MiniMessage
 

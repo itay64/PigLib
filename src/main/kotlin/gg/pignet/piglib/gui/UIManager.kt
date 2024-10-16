@@ -1,10 +1,10 @@
-package gg.pignet.gingerlib.gui
+package gg.pignet.piglib.gui
 
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.inventory.InventoryCloseEvent
 import org.bukkit.event.inventory.InventoryOpenEvent
-import gg.pignet.gingerlib.gui.elements.Button
+import gg.pignet.piglib.gui.elements.Button
 import java.util.*
 
 /**

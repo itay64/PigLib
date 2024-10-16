@@ -1,4 +1,4 @@
-package gg.pignet.gingerlib.gui
+package gg.pignet.piglib.gui
 
 import net.kyori.adventure.text.Component
 import org.bukkit.Material

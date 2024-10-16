@@ -1,9 +1,9 @@
-package gg.pignet.gingerlib
+package gg.pignet.piglib
 
-import gg.pignet.gingerlib.config.ConfigHandler
-import gg.pignet.gingerlib.data.mongo.MongoDB
-import gg.pignet.gingerlib.data.service.NameCacheService
-import gg.pignet.gingerlib.gui.UIListener
+import gg.pignet.piglib.config.ConfigHandler
+import gg.pignet.piglib.data.mongo.MongoDB
+import gg.pignet.piglib.data.service.NameCacheService
+import gg.pignet.piglib.gui.UIListener
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.plugin.java.JavaPlugin
 

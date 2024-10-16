@@ -1,4 +1,4 @@
-package gg.pignet.gingerlib.gui.elements
+package gg.pignet.piglib.gui.elements
 
 import org.bukkit.event.inventory.InventoryClickEvent
 

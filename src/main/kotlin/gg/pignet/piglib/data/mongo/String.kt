@@ -1,4 +1,4 @@
-package gg.pignet.gingerlib.data.mongo
+package gg.pignet.piglib.data.mongo
 
 import java.math.BigInteger
 import java.util.*

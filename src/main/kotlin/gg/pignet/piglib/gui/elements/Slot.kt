@@ -1,6 +1,5 @@
-package gg.pignet.gingerlib.gui.elements
+package gg.pignet.piglib.gui.elements
 
-import gg.pignet.gingerlib.gui.elements.Element
 import org.bukkit.inventory.ItemStack
 
 /**

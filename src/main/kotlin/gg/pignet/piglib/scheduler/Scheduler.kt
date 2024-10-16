@@ -1,7 +1,7 @@
-package gg.pignet.gingerlib.scheduler
+package gg.pignet.piglib.scheduler
 
 import gg.pignet.event.util.scheduler.TimeUnit
-import gg.pignet.gingerlib.PigLib
+import gg.pignet.piglib.PigLib
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
 

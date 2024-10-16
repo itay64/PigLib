@@ -1,7 +1,7 @@
 package gg.pignet.event.data
 
-import gg.pignet.gingerlib.data.mongo.Id
-import gg.pignet.gingerlib.data.mongo.MongoSerializable
+import gg.pignet.piglib.data.mongo.Id
+import gg.pignet.piglib.data.mongo.MongoSerializable
 import java.util.UUID
 
 data class Profile(

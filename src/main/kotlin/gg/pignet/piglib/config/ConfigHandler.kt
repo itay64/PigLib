@@ -1,7 +1,7 @@
-package gg.pignet.gingerlib.config
+package gg.pignet.piglib.config
 
 import com.google.gson.GsonBuilder
-import gg.pignet.gingerlib.PigLib
+import gg.pignet.piglib.PigLib
 import java.io.File
 
 object ConfigHandler {
