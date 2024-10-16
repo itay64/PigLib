@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "2.0.10"
     id("io.papermc.paperweight.userdev") version "1.7.2"
+    id("maven-publish")
 }
 
 group = "gg.pignet"
@@ -9,6 +10,8 @@ version = "1.0-SNAPSHOT"
 repositories {
     mavenCentral()
 }
+
+
 
 dependencies {
     paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
