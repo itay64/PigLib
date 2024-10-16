@@ -2,10 +2,12 @@ plugins {
     kotlin("jvm") version "2.0.10"
     id("io.papermc.paperweight.userdev") version "1.7.2"
     id("maven-publish")
+    id("com.gradleup.shadow") version "8.3.3"
+    id("java")
 }
 
 group = "gg.pignet"
-version = "1.0.4"
+version = "1.0.6"
 
 repositories {
     mavenCentral()
@@ -16,7 +18,11 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = project.group.toString()
             artifactId = "PigLib"
+
             version = project.version.toString()
+            artifact(tasks.shadowJar){
+                classifier = null
+            }
             from(components["java"])
         }
     }
@@ -25,9 +31,16 @@ publishing {
     }
 }
 
-tasks.named<Jar>("jar") {
-    archiveBaseName.set("PigLib")
-    archiveVersion.set("1.0.5") // Exclude the -dev suffix
+
+
+tasks {
+    compileJava {
+    }
+    jar {
+        archiveBaseName.set("PigLib")
+        archiveVersion.set(project.version.toString())
+    }
+
 }
 
 dependencies {
