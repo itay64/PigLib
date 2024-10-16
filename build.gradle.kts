@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "gg.pignet"
-version = "1.0.6"
+version = "1.0.8"
 
 repositories {
     mavenCentral()
@@ -40,7 +40,12 @@ tasks {
         archiveBaseName.set("PigLib")
         archiveVersion.set(project.version.toString())
     }
-
+    shadowJar {
+        mergeServiceFiles()
+        archiveClassifier.set("")
+        archiveVersion.set(project.version.toString())
+        archiveBaseName.set("PigLib")
+    }
 }
 
 dependencies {
