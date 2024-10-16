@@ -25,6 +25,11 @@ publishing {
     }
 }
 
+tasks.named<Jar>("jar") {
+    archiveBaseName.set("PigLib")
+    archiveVersion.set("1.0.5") // Exclude the -dev suffix
+}
+
 dependencies {
     paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
     implementation("org.mongodb:mongodb-driver-sync:5.1.4")
