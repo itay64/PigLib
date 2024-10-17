@@ -1,4 +1,4 @@
-package gg.pignet.event.data
+package gg.pignet.piglib.data
 
 import gg.pignet.piglib.data.mongo.Id
 import gg.pignet.piglib.data.mongo.MongoSerializable
