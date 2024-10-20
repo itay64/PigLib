@@ -6,8 +6,8 @@ import com.mongodb.client.MongoCollection
 import com.mongodb.client.model.Filters
 import gg.pignet.piglib.data.mongo.MongoDB
 import gg.pignet.piglib.data.mongo.toUUID
-import gg.pignet.event.data.findKeyByValue
-import org.bson.Document
+import gg.pignet.piglib.data.findKeyByValue
+import org.bson.codecs.pojo.annotations.BsonId
 import java.net.URL
 import java.util.*
 import java.util.regex.Pattern
@@ -21,10 +21,12 @@ object NameCacheService {
     private val cache = mutableMapOf<UUID, String>()
 
     private var useMongoCache = true
-    private lateinit var mongoCache: MongoCollection<Document>
+    private lateinit var mongoCache: MongoCollection<NameCache>
+
+    data class NameCache(@BsonId val id: String, val name: String) : MongoDB.MongoDocument
 
     fun init() {
-        mongoCache = MongoDB.collection("nameCache")
+        mongoCache = MongoDB.collection<NameCache>()
     }
 
     fun nameFromUUID(uuid: UUID): String {
@@ -33,14 +35,14 @@ object NameCacheService {
 
     private fun queryMongoNameByUUID(uuid: UUID): String? {
         mongoCache.let {
-            mongoCache.find(Filters.eq("_id", uuid.toString())).first()
-                .let {
-                    val name =
-                        it.getString("name") ?: throw MongoException("Document with '_id' '$uuid' has no field 'name'.")
-                    cache[uuid] = name
-                    return name
-                }
+            mongoCache.find(Filters.eq("_id", uuid.toString())).first()?.let {
+                val name =
+                    it.name ?: throw MongoException("Document with '_id' '$uuid' has no field 'name'.")
+                cache[uuid] = name
+                return name
+            }
         }
+        return null
     }
 
     private fun queryMojangNameByUUID(uuid: UUID): String {
@@ -51,12 +53,7 @@ object NameCacheService {
         cache[uuid] = name
         if (useMongoCache) {
             mongoCache.insertOne(
-                Document(
-                    mapOf(
-                        "_id" to uuid.toString(),
-                        "name" to name
-                    )
-                )
+                NameCache(uuid.toString(), name)
             )
         }
         return name
@@ -73,13 +70,14 @@ object NameCacheService {
                     "name",
                     Pattern.compile("^$name$", Pattern.CASE_INSENSITIVE)
                 )
-            ).first().let {
-                val uuid = UUID.fromString(it.getString("_id"))
+            ).first()?.let {
+                val uuid = it.id.toUUID()
                     ?: throw MongoException("Document with 'name' '$name' has no valid UUID at '_id'.")
                 cache[uuid] = name
                 return uuid
             }
         }
+        return null
     }
 
     private fun queryMojangUUIDByName(name: String): UUID {
@@ -91,12 +89,7 @@ object NameCacheService {
         cache[uuid] = name
         if (useMongoCache) {
             mongoCache.insertOne(
-                Document(
-                    mapOf(
-                        "_id" to uuid.toString(),
-                        "name" to name
-                    )
-                )
+                NameCache(uuid.toString(), name)
             )
         }
         return uuid

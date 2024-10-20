@@ -50,7 +50,7 @@ tasks {
 
 dependencies {
     paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
-    implementation("org.mongodb:mongodb-driver-sync:5.1.4")
+    implementation("org.litote.kmongo:kmongo:5.1.0")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0-RC.2")
     implementation(kotlin("reflect"))

@@ -17,7 +17,7 @@ import java.util.*
  * @return The string converted to small caps text with optional color code translation.
  */
 fun String.smallText(translate: Boolean = false): String {
-    var string = this
+    val string = this
     return string.uppercase()
         .replace("Q", "ꞯ")
         .replace("W", "ᴡ")

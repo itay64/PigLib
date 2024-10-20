@@ -1,4 +1,4 @@
-package gg.pignet.event.util.scheduler
+package gg.pignet.piglib.scheduler
 
 enum class TimeUnit(private val javaTimeUnit: java.util.concurrent.TimeUnit?) {
 
