@@ -2,7 +2,6 @@ package gg.pignet.test
 
 import gg.pignet.piglib.data.mongo.MongoDB
 import gg.pignet.piglib.data.mongo.toUUID
-import gg.pignet.piglib.data.service.NameCacheService
 
 fun main(args: Array<String>) {
     MongoDB.init("no way lmao", "secret")

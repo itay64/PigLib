@@ -1,4 +1,4 @@
-package gg.pignet.piglib.data.mongo
+package gg.pignet.lib.data.mongo
 
 import java.math.BigInteger
 import java.util.*
@@ -17,7 +17,7 @@ import java.util.*
  * @return The string converted to small caps text with optional color code translation.
  */
 fun String.smallText(translate: Boolean = false): String {
-    val string = this
+    var string = this
     return string.uppercase()
         .replace("Q", "ꞯ")
         .replace("W", "ᴡ")
