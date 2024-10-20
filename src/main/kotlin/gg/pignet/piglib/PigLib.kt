@@ -27,6 +27,4 @@ class PigLib(javaPlugin: JavaPlugin) {
 
 }
 
-
-
 fun pigLib(plugin: JavaPlugin, init: PigLib.() -> Unit): PigLib = PigLib(plugin).apply(init)

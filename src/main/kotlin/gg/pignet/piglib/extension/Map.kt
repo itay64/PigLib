@@ -1,4 +1,4 @@
-package gg.pignet.piglib.data
+package gg.pignet.event.data
 
 /**
  * Finds the first key associated with the specified value in the map.
