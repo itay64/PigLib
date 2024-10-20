@@ -20,7 +20,6 @@ object NameCacheService {
 
     private val cache = mutableMapOf<UUID, String>()
 
-    private var useMongoCache = true
     private lateinit var mongoCache: MongoCollection<NameCache>
 
     data class NameCache(@BsonId val id: String, val name: String) : MongoDB.MongoDocument
@@ -30,7 +29,7 @@ object NameCacheService {
     }
 
     fun nameFromUUID(uuid: UUID): String {
-        return cache[uuid] ?: useMongoCache.takeIf { it }?.let { queryMongoNameByUUID(uuid)  } ?: queryMojangNameByUUID(uuid)
+        return cache[uuid] ?: queryMongoNameByUUID(uuid) ?: queryMojangNameByUUID(uuid)
     }
 
     private fun queryMongoNameByUUID(uuid: UUID): String? {
@@ -51,16 +50,12 @@ object NameCacheService {
         val name = JsonParser.parseReader(connection.inputStream.reader()).asJsonObject.get("name").asString
         connection.disconnect()
         cache[uuid] = name
-        if (useMongoCache) {
-            mongoCache.insertOne(
-                NameCache(uuid.toString(), name)
-            )
-        }
+        mongoCache.insertOne(NameCache(uuid.toString(), name))
         return name
     }
 
     fun uuidFromName(name: String): UUID {
-        return cache.findKeyByValue(name) ?: useMongoCache.takeIf { it }?.let {  queryMongoUUIDByName(name)  } ?: queryMojangUUIDByName(name)
+        return cache.findKeyByValue(name) ?: queryMongoUUIDByName(name) ?: queryMojangUUIDByName(name)
     }
 
     private fun queryMongoUUIDByName(name: String): UUID? {
@@ -87,11 +82,7 @@ object NameCacheService {
         val uuid = JsonParser.parseReader(connection.inputStream.reader()).asJsonObject.get("id").asString.toUUID()
         connection.disconnect()
         cache[uuid] = name
-        if (useMongoCache) {
-            mongoCache.insertOne(
-                NameCache(uuid.toString(), name)
-            )
-        }
+        mongoCache.insertOne(NameCache(uuid.toString(), name))
         return uuid
     }
 

@@ -6,7 +6,6 @@ import gg.pignet.piglib.data.service.NameCacheService
 import gg.pignet.piglib.gui.UIListener
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.plugin.java.JavaPlugin
-import java.util.*
 
 class PigLib(javaPlugin: JavaPlugin) {
 
