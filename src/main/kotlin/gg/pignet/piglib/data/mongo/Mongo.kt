@@ -20,13 +20,13 @@ object MongoDB {
     private lateinit var client: MongoClient
     lateinit var database: MongoDatabase
 
-    fun init(uri: String = CONFIG.mongo.uri, db: String = CONFIG.mongo.database) {
+    fun init() {
         client = KMongo.createClient(
             MongoClientSettings.builder()
                 .uuidRepresentation(UuidRepresentation.STANDARD)
-                .applyConnectionString(ConnectionString(uri))
+                .applyConnectionString(ConnectionString(CONFIG.mongo.uri))
                 .build())
-        database = client.getDatabase(db)
+        database = client.getDatabase(CONFIG.mongo.database)
     }
 
     interface MongoDocument {
